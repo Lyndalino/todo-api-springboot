@@ -15,4 +15,8 @@ public class TaskController {
     public List<Task> getAllTasks() {
         return taskService.getAllTasks();
     }
+    @PostMapping
+    public Task createTask(@RequestBody Task task){
+        return taskService.createTask(task);
+    }
 }

@@ -1,5 +1,7 @@
 package com.Lynda.todoapi;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 @Service
 public class TaskService {
@@ -13,4 +15,8 @@ public class TaskService {
         return taskRepository.findAll();
     }
     
+    public Task createTask(Task task){
+        task.setDateCreation(LocalDateTime.now());
+        return taskRepository.save(task);
+    }
 }
