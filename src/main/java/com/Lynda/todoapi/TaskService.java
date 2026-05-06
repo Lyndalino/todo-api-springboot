@@ -30,5 +30,9 @@ public class TaskService {
         task.setDescription(taskDetails.getDescription());
         task.setStatut(taskDetails.getStatut());
         return taskRepository.save(task);
+
+    }
+    public void deleteTask(Long id){
+        taskRepository.deleteById(id);
     }
 }
