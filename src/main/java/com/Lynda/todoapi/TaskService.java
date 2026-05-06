@@ -24,4 +24,11 @@ public class TaskService {
         .orElseThrow(() -> new RuntimeException("Tâche non trouvée"));
 
     }
+    public Task updateTask(Long id, Task taskDetails){
+        Task task = getTaskById(id);
+        task.setTitre(taskDetails.getTitre());
+        task.setDescription(taskDetails.getDescription());
+        task.setStatut(taskDetails.getStatut());
+        return taskRepository.save(task);
+    }
 }
