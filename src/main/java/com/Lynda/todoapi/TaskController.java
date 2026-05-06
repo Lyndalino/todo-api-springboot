@@ -19,4 +19,8 @@ public class TaskController {
     public Task createTask(@RequestBody Task task){
         return taskService.createTask(task);
     }
+    @GetMapping("/{id}")
+    public Task getTaskByIdTask(@PathVariable Long id ){
+        return taskService.getTaskById(id);
+    }
 }

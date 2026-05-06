@@ -19,4 +19,9 @@ public class TaskService {
         task.setDateCreation(LocalDateTime.now());
         return taskRepository.save(task);
     }
+    public Task getTaskById(Long id ){
+        return taskRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Tâche non trouvée"));
+
+    }
 }
