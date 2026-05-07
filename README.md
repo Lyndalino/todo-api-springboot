@@ -1,5 +1,5 @@
 # 📝 Todo API - Spring Boot
-
+![CI](https://github.com/Lyndalino/todo-api-springboot/actions/workflows/ci.yml/badge.svg)
 API REST de gestion de tâches construite avec Spring Boot.
 
 ## 🛠️ Stack technique
