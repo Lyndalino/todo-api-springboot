@@ -16,6 +16,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
+      - name: Donner les permissions à mvnw
+        run: chmod +x mvnw
+        
       - name: Compiler avec Maven
         run: ./mvnw clean package -DskipTests
 
