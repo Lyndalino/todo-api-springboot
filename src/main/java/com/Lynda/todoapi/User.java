@@ -29,6 +29,8 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+public void setUsername(String username) { this.username = username; }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { return List.of(); }
