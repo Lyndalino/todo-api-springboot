@@ -48,6 +48,7 @@ async function loadTasks() {
                     <span class="statut ${task.statut}">${task.statut}</span>
                 </div>
                 <div class="task-actions">
+                   <button onclick="editTask(${task.id}, '${task.titre}', '${task.description}', '${task.statut}')">✏️</button>
                     <button onclick="deleteTask(${task.id})">🗑️</button>
                 </div>
             </div>
@@ -87,4 +88,40 @@ function logout() {
     token = "";
     document.getElementById("tasks-section").style.display = "none";
     document.getElementById("auth-section").style.display = "flex";
+}
+function editTask(id, titre, description, statut) {
+    
+    document.getElementById("titre").value = titre;
+    document.getElementById("description").value = description;
+    document.getElementById("statut").value = statut;
+
+    const btn = document.querySelector(".new-task-form button");
+    btn.textContent = "💾 Sauvegarder";
+    btn.onclick = () => updateTask(id);
+}
+
+async function updateTask(id) {
+    const titre = document.getElementById("titre").value;
+    const description = document.getElementById("description").value;
+    const statut = document.getElementById("statut").value;
+
+    await fetch("http://localhost:8080/tasks/" + id, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({ titre, description, statut })
+    });
+
+   
+    const btn = document.querySelector(".new-task-form button");
+    btn.textContent = "➕ Ajouter";
+    btn.onclick = createTask;
+
+    
+    document.getElementById("titre").value = "";
+    document.getElementById("description").value = "";
+
+    loadTasks();
 }
