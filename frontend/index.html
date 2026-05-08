@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App 📝</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div id="auth-section">
+        <div class="auth-card">
+             <h1>Todo App 📝</h1>
+            <input type="text" id="username" placeholder="Username">
+             <input type="password" id="password" placeholder="Password">
+            <div class="auth-buttons">
+                <button onclick="login()">Se connecter</button>
+            <button onclick="register()">S'inscrire</button>
+            </div>
+        <p id="auth-message"></p>
+
+        </div>
+
+    </div>
+    
+<div id="tasks-section" style="display:none;">
+    <div class="container">
+
+        <div class="header">
+            <h1>Mes Tâches 📝</h1>
+            <button onclick="logout()">Déconnexion</button>
+        </div>
+
+        
+        <div class="new-task-form">
+            <h2>Nouvelle tâche</h2>
+            <input type="text" id="titre" placeholder="Titre de la tâche" />
+            <input type="text" id="description" placeholder="Description" />
+            <select id="statut">
+                <option value="TODO">TODO</option>
+                <option value="IN_PROGRESS">IN PROGRESS</option>
+                <option value="DONE">DONE</option>
+            </select>
+            <button onclick="createTask()">➕ Ajouter</button>
+        </div>
+
+       
+        <div id="tasks-list"></div>
+
+    </div>
+</div>
+    <script src="app.js"></script>
+    
+</body>
+</html>
